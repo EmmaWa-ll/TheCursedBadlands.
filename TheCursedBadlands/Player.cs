@@ -22,8 +22,8 @@
         }
         public void Stats()
         {
-            Console.WriteLine($"\n{CharacterClass} {Name} is ready to fight.!");
-            Console.WriteLine($"HP:{CurrentHP} / {MaxHP} | Damage: {Damage} | Gold: {Gold} ");
+            Console.WriteLine($"\nHP:{CurrentHP} / {MaxHP} | Damage: {Damage} | Gold: {Gold} ");
+            Console.ReadKey();
         }
 
         public void PlayersTurn(Enemy enemy)
@@ -37,7 +37,7 @@
             if (enemy.CurrentHP <= 0)
             {
                 Console.Clear();
-                Console.WriteLine($"{enemy.Name} is defeated!!!!! ");
+                Console.WriteLine($"{enemy.Name} is defeated! ");
                 return;
             }
 

@@ -148,7 +148,7 @@
 
                         player.Gold -= healPrice;
                         player.CurrentHP += healAmount;
-                        Console.WriteLine($"{player.Name} healed 15 HP.   - 5 gold / {player.Gold}");
+                        Console.WriteLine($"{player.Name} healed + 15 HP/{player.MaxHP}   |   - 5 gold / {player.Gold} gold left");
 
 
                         if (player.CurrentHP > player.MaxHP)

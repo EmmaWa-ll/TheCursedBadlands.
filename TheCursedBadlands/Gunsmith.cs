@@ -58,7 +58,7 @@
                 return;
             }
             player.Gold -= price;
-            player.Damage = damageBoost;
+            player.Damage += damageBoost;
             player.WeaponName = weaponName;
 
             Console.WriteLine($"You bought {weaponName} for {price} gold. You have {player.Gold} gold left. ");

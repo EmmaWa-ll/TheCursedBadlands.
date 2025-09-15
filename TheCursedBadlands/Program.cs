@@ -32,23 +32,24 @@
                 Console.Write("Your choice: ");
                 string menuChoice = Console.ReadLine();
 
-                //Console.Write("\nPress any key to return to menu. ");
-                //Console.ReadKey();
-                //Console.Clear();
+
 
 
                 switch (menuChoice.ToLower())
                 {
                     case "s":
                         currentPlayer = new Player("Sheriff ", username, 110, 110, 7, 5, "Revolver");
+                        Console.WriteLine($"\n{currentPlayer.CharacterClass} {currentPlayer.Name} is ready to fight.!");
                         currentPlayer.Stats();
                         break;
                     case "c":
                         currentPlayer = new Player("Cowboy", username, 95, 95, 12, 10, "Lasso");
+                        Console.WriteLine($"\n{currentPlayer.CharacterClass} {currentPlayer.Name} is ready to fight.!");
                         currentPlayer.Stats();
                         break;
                     case "i":
                         currentPlayer = new Player("Indian", username, 100, 100, 10, 7, "Knife");
+                        Console.WriteLine($"\n{currentPlayer.CharacterClass} {currentPlayer.Name} is ready to fight.!");
                         currentPlayer.Stats();
                         break;
                     case "q":
@@ -80,7 +81,7 @@
                 Methods.GameTitel();
                 Console.WriteLine("\n              ====== Game Menu ======\n");
                 Console.WriteLine("[A]dventure  |  [R]est  | [S]tats, | [G]unsmith  | [W]estern Saloon  |   [Q]uit ");
-                Console.Write("Your choice: ");
+                Console.Write("\nYour choice: ");
                 string choice = Console.ReadLine().ToLower();
 
                 switch (choice)
@@ -97,7 +98,6 @@
                     case "s":
                         currentPlayer.Stats();
                         break;
-
                     case "g":
                         Gunsmith.GunsmithShop(currentPlayer);
                         break;
