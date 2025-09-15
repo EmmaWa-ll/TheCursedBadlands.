@@ -55,12 +55,17 @@
             player.Gold -= price;
 
             int hpBefore = player.CurrentHP;
-            player.CurrentHP += healAmount;
 
-            if (player.CurrentHP > player.MaxHP)
+
+            if (itemName == "Moonshine")
             {
-                player.CurrentHP = player.MaxHP;
+                player.CurrentHP = player.MaxHP;  //fullt hp 
             }
+            else
+            {
+                player.CurrentHP = Math.Min(player.CurrentHP + healAmount, player.MaxHP);
+            }
+
             int amountHealed = player.CurrentHP - hpBefore;
 
             Console.WriteLine($"\n{itemName} was bought and used: + {amountHealed}.  | HP: {player.CurrentHP}/{player.MaxHP}.   Gold: {player.Gold}");

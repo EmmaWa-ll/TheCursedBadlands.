@@ -108,8 +108,6 @@
 
                         if (enemy.CurrentHP <= 0)
                         {
-
-                            //Console.WriteLine($"\n{enemy.Name} has been defeted!");
                             player.Gold += enemy.Gold;
                             Console.WriteLine($"You loot {enemy.Gold} gold. Your total gold is: {player.Gold}");
                             Console.Write("\nPress any key to return to menu. ");

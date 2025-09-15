@@ -26,9 +26,9 @@
 
             Console.WriteLine($"\n⨠ {Name} strikes back at {player.CharacterClass} {player.Name} with {WeaponName}");
             player.CurrentHP -= Damage;
-            Console.WriteLine($"   ⌊ HP left: {CurrentHP}/{MaxHP}");
+            Console.WriteLine($"    {player.CharacterClass} {player.Name} takes {Damage} damage.  |  HP left: {player.CurrentHP}/{player.MaxHP}");
             Console.WriteLine("================================================");
-            //Methods.ShowStatus(player.Name, player.CurrentHP, player.MaxHP);
+
 
 
         }

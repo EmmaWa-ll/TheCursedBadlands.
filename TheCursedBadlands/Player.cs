@@ -22,7 +22,7 @@
         }
         public void Stats()
         {
-            Console.WriteLine($"\nHP:{CurrentHP} / {MaxHP} | Damage: {Damage} | Gold: {Gold} ");
+            Console.WriteLine($"\nHP:{CurrentHP} / {MaxHP} | Damage: {Damage} | Gold: {Gold} | Weapon: {WeaponName} ");
             Console.ReadKey();
         }
 
@@ -30,9 +30,7 @@
         {
             Console.Clear();
             Console.WriteLine("================================================");
-            Console.WriteLine($"⨠ {CharacterClass} {Name} attacks {enemy.Name} with {WeaponName}!");
-            Console.WriteLine($"   ⌊ HP left: {CurrentHP}/{MaxHP}");
-
+            Console.WriteLine($"⨠  {CharacterClass} {Name} attacks {enemy.Name} with {WeaponName}!");
             enemy.CurrentHP -= Damage;
             if (enemy.CurrentHP <= 0)
             {
@@ -40,6 +38,8 @@
                 Console.WriteLine($"{enemy.Name} is defeated! ");
                 return;
             }
+            Console.WriteLine($"    {enemy.Name} takes {Damage} damage  |  HP left: {enemy.CurrentHP}/{enemy.MaxHP}");
+
 
 
             //Methods.ShowStatus(enemy.Name, enemy.CurrentHP, enemy.MaxHP);
