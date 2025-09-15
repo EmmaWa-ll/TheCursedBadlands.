@@ -9,8 +9,8 @@
 
 
             Methods.GameStoryChoice();
-
-            Console.Write("Write your username: ");
+            Methods.GameTitel();
+            Console.Write("\nWrite your username: ");
             string username = Console.ReadLine().Trim();
 
 
@@ -20,8 +20,8 @@
             {
 
                 Console.Clear();
-
-                Console.WriteLine("       =============================");
+                Methods.GameTitel();
+                Console.WriteLine("\n       =============================");
                 Console.WriteLine("                  MENU ");
                 Console.WriteLine("       =============================");
                 Console.WriteLine("Aviable characters: ");
@@ -40,15 +40,15 @@
                 switch (menuChoice.ToLower())
                 {
                     case "s":
-                        currentPlayer = new Player("Sheriff ", username, 110, 110, 7, 5);
+                        currentPlayer = new Player("Sheriff ", username, 110, 110, 7, 5, "Revolver");
                         currentPlayer.Stats();
                         break;
                     case "c":
-                        currentPlayer = new Player("Cowboy", username, 95, 95, 12, 10);
+                        currentPlayer = new Player("Cowboy", username, 95, 95, 12, 10, "Lasso");
                         currentPlayer.Stats();
                         break;
                     case "i":
-                        currentPlayer = new Player("Indian", username, 100, 100, 10, 7);
+                        currentPlayer = new Player("Indian", username, 100, 100, 10, 7, "Knife");
                         currentPlayer.Stats();
                         break;
                     case "q":
@@ -66,9 +66,9 @@
             //Array av enemies kopplad till klassen Enemy, sätter stats i arrayen för varje enemy. 
             Enemy[] enemies =
             {
-                new Enemy("🧟 Zombie Cowboy", 60, 60, 5, 7),
-                new Enemy("🐎 Ghost Rider", 100, 100, 7, 11 ),
-                new Enemy("🩻 Undead Gunslinger", 120, 120, 9, 14)
+                new Enemy("🧟 Zombie Cowboy", 60, 60, 5, 7, "Claws"),
+                new Enemy("🐎 Ghost Rider", 100, 100, 7, 11, "Chains" ),
+                new Enemy("🩻 Undead Gunslinger", 120, 120, 9, 14, "Broken revolver")
             };
             Random randomEnemy = new Random();
 
@@ -76,7 +76,9 @@
 
             while (currentPlayer.CurrentHP > 0)
             {
-                Console.WriteLine("\n                      ====== Game Menu ======\n");
+                Console.Clear();
+                Methods.GameTitel();
+                Console.WriteLine("\n              ====== Game Menu ======\n");
                 Console.WriteLine("[A]dventure  |  [R]est  | [S]tats, | [G]unsmith  | [W]estern Saloon  |   [Q]uit ");
                 Console.Write("Your choice: ");
                 string choice = Console.ReadLine().ToLower();

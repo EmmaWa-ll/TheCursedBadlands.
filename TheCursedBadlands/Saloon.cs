@@ -5,8 +5,9 @@
         public static void WesternSaloon(Player player)
         {
             Console.Clear();
+            Methods.GameTitel();
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("                    ======  Saloon ======");
+            Console.WriteLine("\n        ======  Saloon ======");
             Console.ResetColor();
             var p = player;
             Console.WriteLine($"\n-- HP: {p.CurrentHP}/{p.MaxHP} | Damage: {p.Damage}  | Gold: {p.Gold} --\n");
@@ -41,11 +42,13 @@
             if (player.Gold < price)
             {
                 Console.WriteLine($"❌ Not enogh gold to but this item.");
+                Methods.Pause();
                 return;
             }
             if (player.CurrentHP >= player.MaxHP)
             {
                 Console.WriteLine($"\nYou already have full HP: {player.CurrentHP}/{player.MaxHP}");
+                Methods.Pause();
                 return;
             }
 
@@ -54,6 +57,7 @@
             {
                 player.CurrentHP = player.MaxHP;
                 Console.WriteLine($"\n{itemName} was bought and used. You are fully healed {player.CurrentHP}/{player.MaxHP}");
+                Methods.Pause();
             }
             else
             {
@@ -63,10 +67,9 @@
             if (player.CurrentHP > player.MaxHP)
             {
                 player.CurrentHP = player.MaxHP;
-                Console.WriteLine($"\n{itemName} was used. +{healAmount}. HP: {player.CurrentHP}/{player.MaxHP}. Gold left: {player.Gold}");
             }
-
-
+            Console.WriteLine($"\n{itemName} was used. + {healAmount}. HP: {player.CurrentHP}/{player.MaxHP}. Gold left: {player.Gold}");
+            Methods.Pause();
         }
     }
 }

@@ -3,11 +3,17 @@
     internal class Methods
     {
 
-        public static void GameStoryChoice()
+        public static void GameTitel()
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("             🌵 The Cursed Badlands 🌵");
             Console.ResetColor();
+        }
+
+        public static void GameStoryChoice()
+        {
+
+            GameTitel();
             Console.WriteLine("\n[S] to hear the story   ||   [G] to start the game imidietly");
             string choice = Console.ReadLine().Trim().ToLower();
 
@@ -70,11 +76,13 @@
 
         public static void ShowStatus(string name, int hp, int maxhp)
         {
-            Console.WriteLine($"{name}: {hp}/{maxhp} HP");
+            Console.WriteLine($"{name}: {hp} / {maxhp} HP");
         }
-        public static void ShowHP(Player player, Enemy enemy)
+
+        public static void Pause()
         {
-            Console.WriteLine("");
+            Console.WriteLine("\npress any key to continue.");
+            Console.ReadKey();
         }
 
 
@@ -83,6 +91,7 @@
 
             while (player.CurrentHP > 0 && enemy.CurrentHP > 0)
             {
+
                 Console.WriteLine("\nYour turn. ");
                 Console.WriteLine("[A]ttack  |  [H]eal  | [R]un ");
                 Console.Write("Choose your next move: ");
@@ -100,7 +109,7 @@
                         if (enemy.CurrentHP <= 0)
                         {
 
-                            Console.WriteLine($"\n{enemy.Name} has been defeted!");
+                            //Console.WriteLine($"\n{enemy.Name} has been defeted!");
                             player.Gold += enemy.Gold;
                             Console.WriteLine($"You loot {enemy.Gold} gold. Your total gold is: {player.Gold}");
                             Console.Write("\nPress any key to return to menu. ");
@@ -117,13 +126,14 @@
                             Console.WriteLine($"{enemy.Name} loots {player.Gold} gold.");
                             Console.Write("\nPress any key to return to menu. ");
                             Console.ReadKey();
-
+                            return;
                         }
                         break;
 
+
                     case "h":
 
-
+                        Console.Clear();
                         int healPrice = 5;
                         int healAmount = 10;
 
@@ -132,21 +142,20 @@
                             Console.WriteLine($"\n❌ You don't have enoght gold to heal! | Current gold: {player.Gold} ");
                             Console.WriteLine("Press any key to continue.");
                             Console.ReadKey();
-                            break;
+                            return;
                         }
+
 
                         player.Gold -= healPrice;
                         player.CurrentHP += healAmount;
+                        Console.WriteLine($"{player.Name} healed 15 HP.   - 5 gold / {player.Gold}");
+
 
                         if (player.CurrentHP > player.MaxHP)
                         {
                             player.CurrentHP = player.MaxHP;
-                            Console.WriteLine($"{player.Name} healed 15 HP.   - 5 gold/{player.Gold}");
                         }
-                        else
-                        {
 
-                        }
                         Console.WriteLine("Press any key to continue.");
                         Console.ReadKey();
                         break;
@@ -160,8 +169,7 @@
                         Console.WriteLine("Invalid choice. Try again.");
                         break;
                 }
-                //Console.WriteLine("Press any key to continue.");
-                //Console.ReadKey();
+
             }
         }
 

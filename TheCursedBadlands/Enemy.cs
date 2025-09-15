@@ -7,25 +7,28 @@
         public int MaxHP;
         public int Damage;
         public int Gold;
+        public string WeaponName;
 
 
-        public Enemy(string name, int maxhp, int currenthp, int damage, int gold)
+        public Enemy(string name, int maxhp, int currenthp, int damage, int gold, string weaponName)
         {
             Name = name;
             CurrentHP = currenthp; ;
             MaxHP = maxhp;
             Damage = damage;
             Gold = gold;
+            WeaponName = weaponName;
         }
 
 
         public void EnemyTurn(Player player)
         {
 
-
-            Console.WriteLine($"\n{Name} attacks {player.CharacterClass} {player.Name}");
+            Console.WriteLine($"\n⨠ {Name} strikes back at {player.CharacterClass} {player.Name} with {WeaponName}");
             player.CurrentHP -= Damage;
-            Methods.ShowStatus(player.Name, player.CurrentHP, player.MaxHP);
+            Console.WriteLine($"   ⌊ HP left: {CurrentHP}/{MaxHP}");
+            Console.WriteLine("================================================");
+            //Methods.ShowStatus(player.Name, player.CurrentHP, player.MaxHP);
 
 
         }
