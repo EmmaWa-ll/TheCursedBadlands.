@@ -69,7 +69,7 @@
             int amountHealed = player.CurrentHP - hpBefore;
 
             Console.WriteLine($"\n{itemName} was bought and used: + {amountHealed}.  | HP: {player.CurrentHP}/{player.MaxHP}.   Gold: {player.Gold}");
-            //GameHelper.Pause();
+
 
 
 

@@ -1,12 +1,19 @@
-﻿namespace TheCursedBadlands
+﻿using NAudio.Wave;
+
+namespace TheCursedBadlands
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            //Gör så att emjois syns när programmet körs. 
+
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
+
+            using var audioFile = new AudioFileReader("westernmusic.wav");
+            using var outputDevice = new WaveOutEvent();
+            outputDevice.Init(audioFile);
+            outputDevice.Play();
 
             GameHelper.GameStoryChoice();
             GameHelper.GameTitel();
@@ -14,7 +21,7 @@
             string username = Console.ReadLine().Trim();
 
 
-            //Null = Är 'tom' ej något objekt än.    
+
             Player currentPlayer = null;
             while (currentPlayer == null)
             {
@@ -64,7 +71,7 @@
                 Console.Clear();
             }
 
-            //Array av enemies kopplad till klassen Enemy, sätter stats i arrayen för varje enemy. 
+
             Enemy[] enemies =
             {
                 new Enemy("🧟 Zombie Cowboy", 60, 60, 5, 7, "Claws"),

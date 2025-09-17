@@ -28,7 +28,7 @@
 
             player.CurrentHP -= Damage;
 
-            //player.CurrentHP = 0;
+
             if (player.CurrentHP <= 0)
             {
                 Gold += player.Gold;
