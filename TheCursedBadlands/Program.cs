@@ -8,8 +8,8 @@
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 
-            Methods.GameStoryChoice();
-            Methods.GameTitel();
+            GameHelper.GameStoryChoice();
+            GameHelper.GameTitel();
             Console.Write("\nWrite your username: ");
             string username = Console.ReadLine().Trim();
 
@@ -20,7 +20,7 @@
             {
 
                 Console.Clear();
-                Methods.GameTitel();
+                GameHelper.GameTitel();
                 Console.WriteLine("\n       =============================");
                 Console.WriteLine("                  MENU ");
                 Console.WriteLine("       =============================");
@@ -78,7 +78,7 @@
             while (currentPlayer.CurrentHP > 0)
             {
                 Console.Clear();
-                Methods.GameTitel();
+                GameHelper.GameTitel();
                 Console.WriteLine("\n              ====== Game Menu ======\n");
                 Console.WriteLine("[A]dventure  |  [R]est  | [S]tats, | [G]unsmith  | [W]estern Saloon  |   [Q]uit ");
                 Console.Write("\nYour choice: ");
@@ -88,11 +88,11 @@
                 {
                     case "a":
                         Enemy choosenEnemy = enemies[randomEnemy.Next(enemies.Length)];
-                        Methods.Adventure(currentPlayer, choosenEnemy);
+                        GameHelper.Adventure(currentPlayer, choosenEnemy);
                         break;
 
                     case "r":
-                        Methods.Rest(currentPlayer);
+                        GameHelper.Rest(currentPlayer);
                         break;
 
                     case "s":

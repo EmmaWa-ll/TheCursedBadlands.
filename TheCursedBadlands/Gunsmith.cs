@@ -10,7 +10,7 @@
             while (true)
             {
                 Console.Clear();
-                Methods.GameTitel();
+                GameHelper.GameTitel();
                 Console.ForegroundColor = ConsoleColor.DarkGray;
                 Console.WriteLine("\n            ======  Gunsmith ======");
                 Console.ResetColor();
@@ -54,7 +54,7 @@
             if (player.Gold < price)
             {
                 Console.WriteLine($"❌ Not enought gold to buy {weaponName}. You have {player.Gold} gold");
-                Methods.Pause();
+                GameHelper.Pause();
                 return;
             }
             player.Gold -= price;
@@ -63,7 +63,7 @@
 
             Console.WriteLine($"You bought {weaponName} for {price} gold. You have {player.Gold} gold left. ");
             Console.WriteLine($"Damage is now {player.Damage}");
-            Methods.Pause();
+            GameHelper.Pause();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace TheCursedBadlands
 {
-    internal class Methods
+    internal class GameHelper
     {
 
         public static void GameTitel()
@@ -14,7 +14,7 @@
         {
 
             GameTitel();
-            Console.WriteLine("\n[S] to hear the story   ||   [G] to start the game imidietly");
+            Console.WriteLine("\nPress [S] to hear the story   ||   Press[G] to start the game imidietly");
             string choice = Console.ReadLine().Trim().ToLower();
 
             switch (choice)
