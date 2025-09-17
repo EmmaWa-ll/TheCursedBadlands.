@@ -1,6 +1,4 @@
-﻿using NAudio.Wave;
-
-namespace TheCursedBadlands
+﻿namespace TheCursedBadlands
 {
     internal class Program
     {
@@ -9,11 +7,7 @@ namespace TheCursedBadlands
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-
-            using var audioFile = new AudioFileReader("westernmusic.wav");
-            using var outputDevice = new WaveOutEvent();
-            outputDevice.Init(audioFile);
-            outputDevice.Play();
+            GameHelper.PlayLoopingMusic("westernmusic.wav");
 
             GameHelper.GameStoryChoice();
             GameHelper.GameTitel();

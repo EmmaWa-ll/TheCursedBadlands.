@@ -1,4 +1,6 @@
-﻿namespace TheCursedBadlands
+﻿using NAudio.Wave;
+
+namespace TheCursedBadlands
 {
     internal class GameHelper
     {
@@ -183,5 +185,24 @@
             Console.ReadKey();
         }
 
+        private static WaveOutEvent outputDevice;
+        private static AudioFileReader audioFile;
+        public static void PlayLoopingMusic(string fileName)
+        {
+
+            audioFile = new AudioFileReader("westernmusic.wav");
+            outputDevice = new WaveOutEvent();
+            outputDevice.Init(audioFile);
+
+            outputDevice.PlaybackStopped += (s, e) =>
+            {
+                audioFile.Position = 0;
+                outputDevice.Play();
+            };
+            outputDevice.Play();
+
+
+
+        }
     }
 }
