@@ -61,6 +61,7 @@
             Console.Clear();
         }
 
+
         public static void Adventure(Player player, Enemy enemy)
         {
             Console.Clear();
@@ -78,6 +79,7 @@
         {
             Console.WriteLine($"{name}: {hp} / {maxhp} HP");
         }
+
 
         public static void Pause()
         {
@@ -103,29 +105,10 @@
                 {
                     case "a":
 
-
                         player.PlayersTurn(enemy);
 
-                        if (enemy.CurrentHP <= 0)
-                        {
-                            player.Gold += enemy.Gold;
-                            Console.WriteLine($"You loot {enemy.Gold} gold. Your total gold is: {player.Gold}");
-                            Console.Write("\nPress any key to return to menu. ");
-                            Console.ReadKey();
-                            return;
-                        }
-
                         enemy.EnemyTurn(player);
-                        if (player.CurrentHP <= 0)
-                        {
 
-                            Console.WriteLine($"\n ☠️ {player.Name} have died! Game over! ☠️ ");
-                            enemy.Gold += player.Gold;
-                            Console.WriteLine($"{enemy.Name} loots {player.Gold} gold.");
-                            Console.Write("\nPress any key to return to menu. ");
-                            Console.ReadKey();
-                            return;
-                        }
                         break;
 
 
@@ -138,8 +121,7 @@
                         if (player.Gold < healPrice)
                         {
                             Console.WriteLine($"\n❌ You don't have enoght gold to heal! | Current gold: {player.Gold} ");
-                            Console.WriteLine("Press any key to continue.");
-                            Console.ReadKey();
+                            Pause();
                             return;
                         }
 
@@ -147,6 +129,7 @@
                         player.Gold -= healPrice;
                         player.CurrentHP += healAmount;
                         Console.WriteLine($"{player.Name} healed + 15 HP/{player.MaxHP}   |   - 5 gold / {player.Gold} gold left");
+                        Pause();
 
 
                         if (player.CurrentHP > player.MaxHP)
@@ -154,17 +137,18 @@
                             player.CurrentHP = player.MaxHP;
                         }
 
-                        Console.WriteLine("Press any key to continue.");
-                        Console.ReadKey();
+                        Pause();
                         break;
 
                     case "r":
 
                         Console.WriteLine($"{player.CharacterClass} {player.Name} runs away!!! ");
+                        Pause();
                         return;
 
                     default:
                         Console.WriteLine("Invalid choice. Try again.");
+                        Pause();
                         break;
                 }
 
@@ -186,7 +170,7 @@
             if (player.CurrentHP <= halfHP)
             {
                 player.CurrentHP += rest;
-                Console.WriteLine($"{player.Name} rested and gained {rest} HP / {player.MaxHP}");
+                Console.WriteLine($"{player.Name} rested by the bonfire and gained {rest} HP / {player.MaxHP}");
 
                 if (player.CurrentHP > halfHP)
                 {

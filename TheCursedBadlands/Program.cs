@@ -87,6 +87,13 @@
                 switch (choice)
                 {
                     case "a":
+
+                        Random randomEvent = new Random();
+                        if (randomEvent.Next(100) < 40)
+                        {
+                            EventManager.StartEvent(currentPlayer);
+                            Console.Clear();
+                        }
                         Enemy choosenEnemy = enemies[randomEnemy.Next(enemies.Length)];
                         GameHelper.Adventure(currentPlayer, choosenEnemy);
                         break;

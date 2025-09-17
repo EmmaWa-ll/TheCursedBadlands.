@@ -31,18 +31,20 @@
             Console.Clear();
             Console.WriteLine("================================================");
             Console.WriteLine($"⨠  {CharacterClass} {Name} attacks {enemy.Name} with {WeaponName}!");
+
             enemy.CurrentHP -= Damage;
             if (enemy.CurrentHP <= 0)
             {
+                enemy.CurrentHP = 0;
                 Console.Clear();
                 Console.WriteLine($"{enemy.Name} is defeated! ");
+                Gold += enemy.Gold;
+                Console.WriteLine($"You loot {enemy.Gold} gold. You have {Gold} gold!");
+                GameHelper.Pause();
                 return;
             }
             Console.WriteLine($"    {enemy.Name} takes {Damage} damage  |  HP left: {enemy.CurrentHP}/{enemy.MaxHP}");
 
-
-
-            //Methods.ShowStatus(enemy.Name, enemy.CurrentHP, enemy.MaxHP);
         }
     }
 }
